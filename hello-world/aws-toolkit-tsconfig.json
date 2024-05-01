@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "inlineSourceMap": true,
+        "target": "es2020",
+        "module": "NodeNext",
+        "outDir": "/Users/denizgokcin/codes/sam-demo/hello-world/build",
+        "rootDir": ".",
+        "baseUrl": ".",
+        "sourceRoot": "/Users/denizgokcin/codes/sam-demo/hello-world",
+        "typeRoots": [
+            "node_modules/@types"
+        ],
+        "types": [
+            "node"
+        ]
+    }
+}

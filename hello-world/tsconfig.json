@@ -4,12 +4,13 @@
     "strict": true,
     "preserveConstEnums": true,
     "noEmit": true,
-    "sourceMap": false,
-    "module": "es2015",
+    "sourceMap": true,
+    "module": "CommonJS",
     "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./build"
   },
   "exclude": ["node_modules"],
 }

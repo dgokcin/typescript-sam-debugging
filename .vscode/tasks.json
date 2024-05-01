@@ -1,0 +1,54 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "type": "npm",
+        "script": "install",
+        "path": "hello-world",
+        "group": "build",
+        "problemMatcher": [],
+        "label": "npm: install - hello-world"
+      },
+      {
+        "type": "typescript",
+        "tsconfig": "hello-world/tsconfig.json",
+        "option": "watch",
+        "problemMatcher": ["$tsc-watch"],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "label": "tsc: watch - hello-world/tsconfig.json"
+      },
+      {
+        "type": "npm",
+        "script": "compile",
+        "path": "hello-world",
+        "group": "build",
+        "problemMatcher": [],
+        "label": "npm: compile - hello-world"
+      },
+      {
+        "type": "npm",
+        "script": "postcompile",
+        "path": "hello-world",
+        "group": "build",
+        "problemMatcher": [],
+        "label": "npm: postcompile - hello-world",
+        "detail": "cp package.json build/package.json && npm install --prefix ./build"
+      },
+      {
+        "label": "Watch All",
+        "presentation": {
+          "reveal": "always"
+        },
+        "group": "build",
+        "dependsOrder": "sequence",
+        "dependsOn": [
+          "npm: install - hello-world",
+          "npm: compile - hello-world",
+          "tsc: watch - hello-world/tsconfig.json"
+        ]
+      }
+    ]
+  }
