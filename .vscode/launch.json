@@ -1,10 +1,10 @@
 {
   "configurations": [
+    // Debugging will not work with this configuration.
     {
       "type": "aws-sam",
       "request": "direct-invoke",
-      // Debugging will not work with this configuration.
-      "name": "sam-app:HelloWorldFunction",
+      "name": "template:HelloWorldFunction",
       "invokeTarget": {
         "target": "template",
         "templatePath": "${workspaceFolder}/template.yaml",
@@ -13,6 +13,29 @@
       "lambda": {
         "payload": {},
         "environmentVariables": {}
+      }
+    },
+    // Debugging will work.
+    {
+      "type": "aws-sam",
+      "request": "direct-invoke",
+      "name": "code:HelloWorldFunction",
+      "invokeTarget": {
+        "target": "code",
+        "lambdaHandler": "app.lambdaHandler",
+        "projectRoot": "${workspaceFolder}/hello-world",
+        "architecture": "x86_64"
+      },
+      "sam": {
+        "localArguments": ["--region", "eu-west-1"]
+      },
+      "preLaunchTask": "Watch All",
+      "lambda": {
+        "runtime": "nodejs20.x",
+        "environmentVariables": {
+          "POWERTOOLS_SERVICE_NAME": "HelloWorldFunction",
+          "POWERTOOLS_METRICS_NAMESPACE": "Custom",
+        }
       }
     }
   ]
