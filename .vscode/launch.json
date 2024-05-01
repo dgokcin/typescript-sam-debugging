@@ -1,0 +1,19 @@
+{
+  "configurations": [
+    {
+      "type": "aws-sam",
+      "request": "direct-invoke",
+      // Debugging will not work with this configuration.
+      "name": "sam-app:HelloWorldFunction",
+      "invokeTarget": {
+        "target": "template",
+        "templatePath": "${workspaceFolder}/template.yaml",
+        "logicalId": "HelloWorldFunction"
+      },
+      "lambda": {
+        "payload": {},
+        "environmentVariables": {}
+      }
+    }
+  ]
+}
